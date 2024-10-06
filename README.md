@@ -19,7 +19,7 @@ This project is a job recommendation service built using Flask for the backend a
 ### Backend Setup
 1. Clone the repository:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/startope9/job-recommendation.git
     cd jobs
     ```
 
