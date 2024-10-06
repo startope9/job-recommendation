@@ -17,10 +17,10 @@ const User = () => {
 
     const [res, setres] = useState({})
 
-    const skillOptions = ['Python', 'Django', 'REST APIs', 'JavaScript', 'React', 'Node.js'];
-    const experienceOptions = ['Junior', 'Intermediate', 'Advanced'];
-    const roleOptions = ['Backend Developer', 'Frontend Developer', 'Software Engineer', 'Full-Stack Developer'];
-    const locationOptions = ['Remote', 'New York', 'San Francisco', 'London'];
+    const skillOptions = ['Python', 'Django', 'REST APIs', 'JavaScript', 'React', 'Node.js', 'Docker', 'Kubernetes'];
+    const experienceOptions = ['Junior', 'Intermediate', 'Senior'];
+    const roleOptions = ['Backend Developer', 'Frontend Developer', 'Software Engineer', 'Full-Stack Developer', 'Cloud Developer', 'Reliability Engineer'];
+    const locationOptions = ['Remote', 'New York', 'San Francisco', 'London', 'Chicago'];
     const jobTypeOptions = ['Full-Time', 'Part-Time', 'Internship'];
 
     const handleMultiSelectChange = (e, name) => {

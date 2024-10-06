@@ -55,7 +55,7 @@ def recommend_jobs():
         return jsonify({'error':'failed to connect to database'}), 500
     mycoll = mydb['job_posting']
 
-
+    print("user:\n", user_profile)
 
     # job_postings = list(mycoll.find({}))
     try:
@@ -76,8 +76,6 @@ def recommend_jobs():
         recommendations.append((job, score))
     
     recommendations.sort(key=lambda x: x[1], reverse=True)
-    
-
     top_jobs = [convert_objectid_to_str(job) for job, _ in recommendations[:5]]  # Return top 5 recommendations
     return jsonify(top_jobs)
 

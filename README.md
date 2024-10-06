@@ -20,7 +20,7 @@ This project is a job recommendation service built using Flask for the backend a
 1. Clone the repository:
     ```bash
     git clone https://github.com/startope9/job-recommendation.git
-    cd jobs
+    cd job-recommendation/backend
     ```
 
 3. Install the required packages:
@@ -30,13 +30,13 @@ This project is a job recommendation service built using Flask for the backend a
 
 4. Run the Flask application:
     ```bash
-    python app.py
+    python server.py
     ```
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
     ```bash
-    cd client
+    cd frontend
     ```
 
 2. Install dependencies:
@@ -48,6 +48,8 @@ This project is a job recommendation service built using Flask for the backend a
     ```bash
     npm start
     ```
+
+- **Backend and frontend setup must be done in two different terminals keeping both the ip address running.**
 
 ## Recommendation Logic
 The recommendation logic is based on a scoring system that evaluates the compatibility of user profiles with job postings. Each factor contributes to a total score, which determines the relevance of a job posting to the user.
@@ -68,5 +70,4 @@ The recommendation logic is based on a scoring system that evaluates the compati
 - **Error Handling**: Implementing error handling to provide meaningful messages in case of failures.
 
 
-# job-recommendation
-# job-recommendation
+
