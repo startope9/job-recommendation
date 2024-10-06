@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Display({ jobsref = [] }) {
     if (!jobsref.length) {
-        return <p>No job listings available.</p>; // Handle the case when jobsref is empty
+        return <p>No job listings available.</p>;
     }
 
     return (

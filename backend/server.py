@@ -14,7 +14,7 @@ def home():
 def calculate_match_score(user_profile, job_posting):
     score = 0
 
-    if user_profile["experience_level"] == job_posting["experience_level"]: #give high preference to experience_level
+    if user_profile["experience_level"] == job_posting["experience_level"]: 
         score += 1000
     if job_posting["job_title"] in user_profile["preferences"]["desired_roles"]:
         score += 20
@@ -53,14 +53,11 @@ def recommend_jobs():
         mydb = myclient['recommend']
     except:
         return jsonify({'error':'failed to connect to database'}), 500
-    mycoll = mydb['job_posting']
-
-    print("user:\n", user_profile)
 
     # job_postings = list(mycoll.find({}))
     try:
+        mycoll = mydb['job_posting']
         mydb['user_profile'].insert_one(user_profile)
-    # Pre-filter job postings using MongoDB query
         job_postings = list(mycoll.find({
             "experience_level": user_profile["experience_level"],
             "job_title": {"$in": user_profile["preferences"]["desired_roles"]},
@@ -75,6 +72,7 @@ def recommend_jobs():
         score = calculate_match_score(user_profile, job)
         recommendations.append((job, score))
     
+
     recommendations.sort(key=lambda x: x[1], reverse=True)
     top_jobs = [convert_objectid_to_str(job) for job, _ in recommendations[:5]]  # Return top 5 recommendations
     return jsonify(top_jobs)
