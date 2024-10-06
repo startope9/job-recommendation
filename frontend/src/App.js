@@ -1,13 +1,9 @@
-import User from "./User";
-import { createBrowserRouter } from "react-router-dom";
+import User from "./Components/User"
 
-
-const App = createBrowserRouter([
-  {
-    path: '/',
-    element: <User />
-  }
-])
-
+function App() {
+  return (
+    <User />
+  )
+}
 
 export default App;
