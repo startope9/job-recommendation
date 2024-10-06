@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Job Recommendation Service
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a job recommendation service built using Flask for the backend and React for the frontend. It matches user profiles with job postings based on various criteria such as experience level, desired roles, locations, job types, and required skills.
 
-## Available Scripts
+## Assumption
+- Job postings are present in database.
 
-In the project directory, you can run:
 
-### `npm start`
+## Technologies Used
+- **Backend**: Python-Flask
+- **Frontend**: React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
+- Ensure that MongoDB is running and accessible at `localhost:27017`.
 
-### `npm test`
+### Backend Setup
+1. Clone the repository:
+    ```bash
+    git clone <your-repo-url>
+    cd jobs
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### `npm run build`
+4. Run the Flask application:
+    ```bash
+    python app.py
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend Setup
+1. Navigate to the frontend directory:
+    ```bash
+    cd client
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run the React application:
+    ```bash
+    npm start
+    ```
 
-### `npm run eject`
+## Recommendation Logic
+The recommendation logic is based on a scoring system that evaluates the compatibility of user profiles with job postings. Each factor contributes to a total score, which determines the relevance of a job posting to the user.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Matching Algorithm
+1. **Experience Level**: High preference is given to matching experience levels, contributing a significant score.
+2. **Desired Roles**: If the job title matches one of the user's desired roles, a small score is added.
+3. **Location**: The location of the job must match the user's preferences to add to the score.
+4. **Job Type**: The job type must also match to contribute to the score.
+5. **Skills Overlap**: The algorithm calculates the overlap between the user's skills and the job's required skills, adding to the score based on the number of matching skills.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Assumptions and Design Decisions
+- User profiles and job postings are stored in a MongoDB database.
+- The application assumes that users will provide complete and accurate information in their profiles.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Challenges Encountered
+- **Database Connectivity**: Handling connections and ensuring the database is running before executing queries.
+- **Error Handling**: Implementing error handling to provide meaningful messages in case of failures.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# job-recommendation
+# job-recommendation
